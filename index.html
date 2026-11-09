@@ -492,6 +492,7 @@ footer .logos img{height:42px;width:auto}
       <button class="vi" type="button" data-v="video/promo-4.mp4" data-r="Promo · Casos reales de innovación empresarial con IA"><span class="th"><img src="video/promo-4.jpg" alt=""></span><span><b>Casos reales de innovación empresarial con IA</b><small>Panel</small></span></button>
       <button class="vi" type="button" data-v="video/promo-5.mp4" data-r="Promo · Agentic Intelligence"><span class="th"><img src="video/promo-5.jpg" alt=""></span><span><b>Agentic Intelligence</b><small>Conferencia · Centry</small></span></button>
       <h4>Semblanzas</h4>
+      <button class="vi" type="button" data-v="video/sem-edgar.mp4" data-r="Presentación · Edgar Muñiz Ávila"><span class="th"><img src="video/sem-edgar.jpg" alt=""></span><span><b>Edgar Muñiz Ávila</b><small>Presentación · Tec de Monterrey</small></span></button>
       <button class="vi" type="button" data-v="video/sem-aurelio.mp4" data-r="Keynote · Aurelio Rico Cavazos"><span class="th"><img src="video/sem-aurelio.jpg" alt=""></span><span><b>Aurelio Rico Cavazos</b><small>Keynote · Grupo Berel</small></span></button>
       <button class="vi" type="button" data-v="video/sem-federico.mp4" data-r="Conferencia · Federico Muciño García"><span class="th"><img src="video/sem-federico.jpg" alt=""></span><span><b>Federico Muciño García</b><small>Conferencia · Epscon</small></span></button>
       <button class="vi" type="button" data-v="video/sem-hector.mp4" data-r="Panel · Héctor González"><span class="th"><img src="video/sem-hector.jpg" alt=""></span><span><b>Héctor González</b><small>Panel · Kernel</small></span></button>
@@ -613,7 +614,7 @@ footer .logos img{height:42px;width:auto}
     if(auto){ var pr=player.play(); if(pr&&pr.catch) pr.catch(function(){}); }
   }
   [].forEach.call(document.querySelectorAll(".vi[data-v]"),function(x){ x.addEventListener("click",function(){ verVideo(x.dataset.v,x.dataset.r,true) }) });
-  var VID={aurelio:1,hector:1,aureliano:1,angel:1,jose:1,federico:1};
+  var VID={aurelio:1,hector:1,aureliano:1,angel:1,jose:1,federico:1,edgar:1};
 
   /* Promo general */
   var pv=document.getElementById("promoVid"), pt=document.getElementById("promoTapa");
