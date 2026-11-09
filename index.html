@@ -317,6 +317,18 @@ footer .logos img{height:42px;width:auto}
   .cuenta{padding-block:80px}
   .cuenta::before{background-position:70% 30%;opacity:.5}
 }
+.cuotas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.cuota{position:relative;display:flex;flex-direction:column;gap:14px;padding:30px 26px;border-radius:24px;background:var(--panel);border:1px solid var(--linea);overflow:hidden;transition:transform .45s var(--ease),border-color .45s}
+.cuota:hover{transform:translateY(-4px);border-color:var(--linea2)}
+.cuota .quien{font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--suave);min-height:2.6em}
+.cuota .monto{font-size:clamp(2.4rem,4vw,3.2rem);font-weight:800;letter-spacing:-.04em;line-height:1}
+.cuota .monto small{font-size:.9rem;font-weight:600;letter-spacing:.06em;color:var(--tenue);margin-left:6px}
+.cuota .nota{font-size:.88rem;color:var(--tenue);margin-top:auto}
+.cuota.top{background:linear-gradient(180deg,rgba(168,85,247,.22),rgba(34,211,238,.06));border-color:rgba(168,85,247,.5);box-shadow:0 30px 80px -40px rgba(168,85,247,.8)}
+.cuota.top::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:var(--grad2);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.cuotas-pie{margin-top:22px;color:var(--tenue);font-size:.92rem}
+@media (max-width:1000px){.cuotas{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.cuotas{grid-template-columns:minmax(0,1fr)}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
@@ -332,7 +344,7 @@ footer .logos img{height:42px;width:auto}
     <img class="marca" src="img/innovai.png" alt="InnovAI">
     <img class="imef" src="img/imef.png" alt="IMEF Grupo Monterrey">
     <nav aria-label="Secciones">
-      <a href="#promo">Video</a><a href="#foro">El foro</a><a href="#programa">Programa</a><a href="#ponentes">Ponentes</a><a href="#videos">Videos</a><a href="#sede">Sede</a>
+      <a href="#promo">Video</a><a href="#foro">El foro</a><a href="#programa">Programa</a><a href="#ponentes">Ponentes</a><a href="#videos">Videos</a><a href="#sede">Sede</a><a href="#costos">Costos</a>
     </nav>
     <a class="btn prim sm" href="https://www.imefmty.com" target="_blank" rel="noopener">Registrarme</a>
   </div>
@@ -518,6 +530,23 @@ footer .logos img{height:42px;width:auto}
       <div class="dato"><span>Informes</span><div>eventos@imefmty.com<button class="copy" id="copiar" type="button">Copiar</button></div></div>
     </div>
   </div>
+</section>
+
+<section class="bloque wrap" id="costos" style="padding-top:0" aria-labelledby="t-costos">
+  <div class="cab rv">
+    <div>
+      <div class="eyebrow">Costos</div>
+      <h2 id="t-costos">Aparta tu <span class="grad">lugar</span></h2>
+    </div>
+    <p>Elige tu categoría al registrarte.</p>
+  </div>
+  <div class="cuotas">
+    <div class="cuota top rv"><div class="quien">Socio IMEF</div><div class="monto grad">Sin costo</div></div>
+    <div class="cuota rv"><div class="quien">Colaborador de socio IMEF</div><div class="monto">$500<small>MXN</small></div></div>
+    <div class="cuota rv"><div class="quien">Organizaciones aliadas</div><div class="monto">$500<small>MXN</small></div></div>
+    <div class="cuota rv"><div class="quien">Público en general</div><div class="monto">$800<small>MXN</small></div></div>
+  </div>
+  <div class="ctas" style="margin-top:28px"><a class="btn prim" href="https://www.imefmty.com" target="_blank" rel="noopener">Registrarme</a></div>
 </section>
 
 <section class="final">
