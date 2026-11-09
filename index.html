@@ -116,6 +116,17 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .l{margin-top:12px;font-size:clamp(.6rem,1.4vw,.78rem);font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--ciano)}
 .cuenta .nota{margin-top:30px;color:var(--suave);max-width:46ch}
 
+/* ---------- Promo general ---------- */
+.promo{padding-block:40px 110px}
+.promo .marco{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:16/9;max-width:100%;background:#000;box-shadow:0 0 0 1px var(--linea2),0 60px 140px -50px rgba(168,85,247,.9),0 0 120px -60px rgba(34,211,238,.8)}
+.promo video{width:100%;height:100%;display:block;object-fit:cover}
+.promo .tapa{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(5,5,10,.1),rgba(5,5,10,.55));border:0;cursor:pointer;color:#fff;font:inherit;transition:opacity .4s}
+.promo .tapa[hidden]{display:none}
+.promo .play{width:clamp(76px,10vw,112px);height:clamp(76px,10vw,112px);border-radius:50%;background:var(--grad);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(255,255,255,.08),0 20px 60px -10px rgba(168,85,247,.9);transition:transform .4s var(--ease)}
+.promo .tapa:hover .play{transform:scale(1.08)}
+.promo .play::after{content:"";margin-left:8px;border-left:28px solid #fff;border-top:17px solid transparent;border-bottom:17px solid transparent}
+.promo .pie{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:20px;color:var(--tenue);font-size:.92rem}
+.promo .pie b{color:var(--blanco);font-weight:600}
 /* ---------- Secciones ---------- */
 section.bloque{padding-block:120px}
 .cab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:40px;align-items:end;margin-bottom:56px}
@@ -321,7 +332,7 @@ footer .logos img{height:42px;width:auto}
     <img class="marca" src="img/innovai.png" alt="InnovAI">
     <img class="imef" src="img/imef.png" alt="IMEF Grupo Monterrey">
     <nav aria-label="Secciones">
-      <a href="#foro">El foro</a><a href="#programa">Programa</a><a href="#ponentes">Ponentes</a><a href="#videos">Videos</a><a href="#sede">Sede</a>
+      <a href="#promo">Video</a><a href="#foro">El foro</a><a href="#programa">Programa</a><a href="#ponentes">Ponentes</a><a href="#videos">Videos</a><a href="#sede">Sede</a>
     </nav>
     <a class="btn prim sm" href="https://www.imefmty.com" target="_blank" rel="noopener">Registrarme</a>
   </div>
@@ -340,7 +351,7 @@ footer .logos img{height:42px;width:auto}
       <div class="cuando"><span class="f"><span style="white-space:nowrap">3 de diciembre de 2026</span> <span style="white-space:nowrap">· 16:00 h</span></span><span class="lu">Salón Polivalente, Expedition FEMSA · Tec de Monterrey</span></div>
       <div class="ctas">
         <a class="btn prim" href="https://www.imefmty.com" target="_blank" rel="noopener">Registrarme al foro</a>
-        <a class="btn" href="#programa">Ver el programa</a>
+        <a class="btn" href="#promo"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Ver el video</a>
       </div>
     </div>
   </div>
@@ -368,6 +379,20 @@ footer .logos img{height:42px;width:auto}
     <div class="ctas" style="margin-top:26px">
       <a class="btn" id="gcal" href="https://calendar.google.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Agregar a mi calendario</a>
     </div>
+  </div>
+</section>
+
+<section class="promo" id="promo" aria-labelledby="t-promo">
+  <div class="wrap">
+    <div class="cab rv" style="margin-bottom:34px">
+      <div><div class="eyebrow">Video promocional</div><h2 id="t-promo">Mira <span class="grad">InnovAI 2026</span></h2></div>
+      <p>Un minuto y veinte segundos para entender por qué este foro es donde nacen las ideas del futuro.</p>
+    </div>
+    <div class="marco rv">
+      <video id="promoVid" playsinline preload="metadata" poster="video/promo-general.jpg" src="video/promo-general.mp4"></video>
+      <button class="tapa" type="button" id="promoTapa" aria-label="Reproducir el video promocional"><span class="play"></span></button>
+    </div>
+    <div class="pie"><span><b>Promo oficial</b> · 5° Foro de Innovación y Emprendimiento IMEF</span><span>1:20 · con sonido</span></div>
   </div>
 </section>
 
@@ -587,6 +612,12 @@ footer .logos img{height:42px;width:auto}
   }
   [].forEach.call(document.querySelectorAll(".vi[data-v]"),function(x){ x.addEventListener("click",function(){ verVideo(x.dataset.v,x.dataset.r,true) }) });
   var VID={aurelio:1,hector:1,aureliano:1,angel:1};
+
+  /* Promo general */
+  var pv=document.getElementById("promoVid"), pt=document.getElementById("promoTapa");
+  pt.addEventListener("click",function(){ pt.hidden=true; pv.controls=true; var r=pv.play(); if(r&&r.catch) r.catch(function(){}) });
+  pv.addEventListener("play",function(){ pt.hidden=true; pv.controls=true; if(!player.paused) player.pause() });
+  player.addEventListener("play",function(){ if(!pv.paused) pv.pause() });
 
   /* Línea de luz de la agenda */
   var ag=document.getElementById("agenda"), luz=document.getElementById("luz");
