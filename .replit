@@ -1,0 +1,39 @@
+entrypoint = "server.js"
+modules = ["nodejs-20"]
+run = "npm start"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
+
+[[ports]]
+localPort = 5000
+externalPort = 5000
+
+[deployment]
+run = "npm start"
+deploymentTarget = "cloudrun"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Preview landing"
+
+[[workflows.workflow]]
+name = "Preview landing"
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node server.js"
+waitForPort = 3000
