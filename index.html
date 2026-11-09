@@ -496,6 +496,7 @@ footer .logos img{height:42px;width:auto}
       <button class="vi" type="button" data-v="video/sem-hector.mp4" data-r="Panel · Héctor González"><span class="th"><img src="video/sem-hector.jpg" alt=""></span><span><b>Héctor González</b><small>Panel · Kernel</small></span></button>
       <button class="vi" type="button" data-v="video/sem-aureliano.mp4" data-r="Panel · Aureliano Rivera"><span class="th"><img src="video/sem-aureliano.jpg" alt=""></span><span><b>Aureliano Rivera</b><small>Panel · Nexolution</small></span></button>
       <button class="vi" type="button" data-v="video/sem-angel.mp4" data-r="Moderador · Ángel López Rodríguez"><span class="th"><img src="video/sem-angel.jpg" alt=""></span><span><b>Ángel López Rodríguez</b><small>Moderador del panel</small></span></button>
+      <button class="vi" type="button" data-v="video/sem-jose.mp4" data-r="Conferencia · José González Aceves"><span class="th"><img src="video/sem-jose.jpg" alt=""></span><span><b>José González Aceves</b><small>Conferencia · Centry</small></span></button>
     </div>
   </div>
 </section>
@@ -611,7 +612,7 @@ footer .logos img{height:42px;width:auto}
     if(auto){ var pr=player.play(); if(pr&&pr.catch) pr.catch(function(){}); }
   }
   [].forEach.call(document.querySelectorAll(".vi[data-v]"),function(x){ x.addEventListener("click",function(){ verVideo(x.dataset.v,x.dataset.r,true) }) });
-  var VID={aurelio:1,hector:1,aureliano:1,angel:1};
+  var VID={aurelio:1,hector:1,aureliano:1,angel:1,jose:1};
 
   /* Promo general */
   var pv=document.getElementById("promoVid"), pt=document.getElementById("promoTapa");
